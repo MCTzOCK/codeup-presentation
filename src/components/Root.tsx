@@ -19,6 +19,7 @@ import {
   FaMinimize,
 } from "react-icons/fa6";
 import * as Effects from "./SlideEffects.tsx";
+import * as BG from "./AnimatedBackground.tsx";
 
 export default function Root(props: {
   slides: { view: ReactElement; effect: Effects.SlideEffect }[];
@@ -72,6 +73,7 @@ export default function Root(props: {
         {view === SlideView.OVERVIEW && <></>}
         {view === SlideView.SLIDE && (
           <>
+            <BG.AnimatedBackground1 />
             {props.slides.map((sl, index) => (
               <>
                 {sl.effect === Effects.SlideEffect.FLIP ? (

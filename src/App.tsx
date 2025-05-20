@@ -11,6 +11,10 @@ export default function App() {
           view: <AMainSlide />,
           effect: SlideEffect.ZOOM,
         },
+        {
+          view: <AMainSlide />,
+          effect: SlideEffect.ZOOM,
+        },
       ]}
     ></Root>
   );

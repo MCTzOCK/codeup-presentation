@@ -25,6 +25,7 @@ export function Effect3DFlip(props: {
         padding: "var(--chakra-space-4)",
         transformStyle: "preserve-3d",
         backfaceVisibility: "hidden",
+        zIndex: 10,
       }}
       initial={{
         opacity: 0,
@@ -60,6 +61,7 @@ export function EffectCurtainReveal(props: {
         height: "100vh",
         padding: "var(--chakra-space-4)",
         overflow: "hidden",
+        zIndex: 10,
       }}
       initial={{
         clipPath: "inset(50% 0% 50% 0%)",
@@ -97,6 +99,7 @@ export function EffectZoom(props: {
         width: "100%",
         height: "100vh",
         padding: "var(--chakra-space-4)",
+        zIndex: 10,
       }}
       initial={{
         opacity: 0,
