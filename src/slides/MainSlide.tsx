@@ -1,5 +1,5 @@
 /**
- * src/slides/AMainSlide.tsx
+ * src/slides/MainSlide.tsx
  *
  * Author Ben Siebert <hello@ben-siebert.de>
  * Copyright: Copyright © Ben Siebert. All rights reserved.
@@ -12,7 +12,7 @@ import { SlideEffect } from "../components/SlideEffects.tsx";
 import Slide from "../components/Slide.tsx";
 import { Center, Flex, Heading, Stack } from "@chakra-ui/react";
 
-export default function AMainSlide() {
+export default function MainSlide() {
   return (
     <>
       <Slide>
