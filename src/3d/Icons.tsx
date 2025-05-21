@@ -11,21 +11,24 @@ import * as React from "react";
 import * as THREE from "three";
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Text } from "@react-three/drei";
+import { RoundedBox, Text, Text3D } from "@react-three/drei";
 
 const fontBold = "/fonts/Inter-Bold.ttf";
 
+// youtube logo (rounded red rectanble with triangular play button in the middle)
 export function VideoIcon(props: { position: [number, number, number] }) {
   return (
     <group position={props.position}>
-      <mesh>
-        <boxGeometry args={[2.5, 1.5, 0.2]} />
-        <meshStandardMaterial color="#e63946" />
-      </mesh>
-      <mesh position={[1.3, 0, 0.15]} rotation={[0, 0, Math.PI / 4]}>
-        <coneGeometry args={[0.3, 0.6, 4]} />
-        <meshStandardMaterial color="#f1faee" />
-      </mesh>
+      <RoundedBox args={[2, 1, 0.5]} radius={0.1}>
+        <meshStandardMaterial color="#FF0000" />
+      </RoundedBox>
+      <Text
+        font={"/fonts/Inter-Bold.ttf"}
+        position={[0, 0, 0.5]}
+        fontSize={0.2}
+      >
+        Lektion
+      </Text>
     </group>
   );
 }
@@ -41,34 +44,33 @@ export function BookIcon(props: { position: [number, number, number] }) {
         <boxGeometry args={[0.2, 2.5, 0.01]} />
         <meshStandardMaterial color="#1d3557" />
       </mesh>
+      <Text
+        font={"/fonts/Inter-Bold.ttf"}
+        position={[0, 0, 0.5]}
+        fontSize={0.4}
+      >
+        Kurs
+      </Text>
     </group>
   );
 }
 
 export function QuestionIcon(props: { position: [number, number, number] }) {
-  const ref = useRef<THREE.Mesh>(null);
-
-  useFrame(() => {
-    if (ref.current) {
-      ref.current.rotation.y += 0.01;
-    }
-  });
-
   return (
-    <group ref={ref} position={props.position}>
-      <mesh>
-        <sphereGeometry args={[1, 32, 32]} />
+    <group position={props.position}>
+      <mesh rotation={[0, Math.PI / 4, 0]}>
+        <sphereGeometry args={[0.75, 16, 16]} />
         <meshStandardMaterial color="#a8dadc" />
       </mesh>
       <Text
-        position={[0, 0, 0.9]}
-        fontSize={0.6}
-        color="#1d3557"
+        font={"/fonts/Inter-Bold.ttf"}
+        position={[-0.5, 0, 1]}
+        fontSize={0.2}
+        color="#fafafa"
         anchorX="center"
         anchorY="middle"
-        font={fontBold}
       >
-        ?
+        Quiz
       </Text>
     </group>
   );

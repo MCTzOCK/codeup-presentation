@@ -33,30 +33,27 @@ export default function WebLearning() {
       <ambientLight intensity={0.3} />
       <pointLight position={[0, 10, 10]} intensity={1.2} />
       <group position={[150, 0, 0]}>
+        <Text3D
+          font={"/fonts/Inter-Bold.json"}
+          size={1}
+          position={[-8, 3.5, 0]}
+          onClick={() => {
+            window.open("https://codeup.space/course", "_blank");
+          }}
+        >
+          Video-Kurse
+          <meshStandardMaterial color="#F7DE1F" />
+        </Text3D>
+
         <OrbitControls />
 
         {/* Book - Start */}
         <BookIcon position={[-6, 0, 0]} />
-        <Text
-          font={"/fonts/Inter-Bold.ttf"}
-          position={[-6, 2, 0]}
-          fontSize={0.4}
-        >
-          Fokussierte Kurse
-        </Text>
 
         {/* Video Lessons */}
         {[2, 0, -2].map((y, i) => (
           <>
-            <VideoIcon position={[-4, y, 0]} />
-            <Text3D
-              font={"/fonts/Inter-Bold.json"}
-              position={[-2, y - 0.9, 0]}
-              size={0.2}
-            >
-              Video Lektionen (~5m)
-              <meshStandardMaterial color="#FAFAFA" />
-            </Text3D>
+            <VideoIcon position={[0, y, 0]} />
           </>
         ))}
 
@@ -64,15 +61,6 @@ export default function WebLearning() {
         {[2, 0, -2].map((y, i) => (
           <>
             <QuestionIcon key={`quiz-${i}`} position={[4, y, 0]} />
-            <Text3D
-              key={`quiz-label-${i}`}
-              font={"/fonts/Inter-Bold.json"}
-              position={[2, y - 0.9, 0]}
-              size={0.2}
-            >
-              Quiz
-              <meshStandardMaterial color="#FAFAFA" />
-            </Text3D>
           </>
         ))}
 
@@ -92,7 +80,7 @@ export default function WebLearning() {
               points={[
                 new THREE.Vector3(-2, y, 0),
                 new THREE.Vector3(0, y, 0),
-                new THREE.Vector3(2, y, 0),
+                new THREE.Vector3(4, y, 0),
               ]}
             />
           </>

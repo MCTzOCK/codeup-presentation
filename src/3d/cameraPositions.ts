@@ -17,7 +17,7 @@ export const cameraPositions = [
     lookAt: [100, 0, 0],
   },
   {
-    position: [150, 1, 10],
+    position: [150, 0, 10],
     lookAt: [150, 0, 0],
   },
 ];

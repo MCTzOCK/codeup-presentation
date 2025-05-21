@@ -10,8 +10,9 @@
 import * as React from "react";
 // components/SceneItem.tsx
 import { Text3D, Center, Float } from "@react-three/drei";
-import { MeshStandardMaterial } from "three";
+import { Mesh, MeshStandardMaterial } from "three";
 import { RoundedBox } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 export function SceneItem({
   position,
@@ -39,8 +40,15 @@ export function SceneItem({
 }
 
 function Globe({ color }: { color: string }) {
+  const ref = React.useRef<Mesh>(null);
+  useFrame(() => {
+    if (ref.current) {
+      ref.current.rotation.y += 0.01;
+    }
+  });
+
   return (
-    <mesh>
+    <mesh ref={ref}>
       <sphereGeometry args={[1.2, 32, 32]} />
       <meshStandardMaterial color={color} wireframe />
     </mesh>
