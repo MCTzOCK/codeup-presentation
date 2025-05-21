@@ -8,14 +8,6 @@
  */
 
 import * as React from "react";
-import { Suspense } from "react";
-import { Center } from "@chakra-ui/react";
-import {
-  Float,
-  MeshDistortMaterial,
-  Text3D,
-  useMatcapTexture,
-} from "@react-three/drei";
 import { SceneItem } from "../SceneItem.tsx";
 
 export default function ComponentPart() {
