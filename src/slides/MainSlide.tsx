@@ -11,6 +11,7 @@ import * as React from "react";
 import { SlideEffect } from "../components/SlideEffects.tsx";
 import Slide from "../components/Slide.tsx";
 import { Center, Flex, Heading, Stack } from "@chakra-ui/react";
+import * as BG from "../components/AnimatedBackground.tsx";
 
 export default function MainSlide() {
   return (

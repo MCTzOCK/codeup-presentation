@@ -76,21 +76,30 @@ export default function Root(props: {
             <BG.AnimatedBackground1 />
             {props.slides.map((sl, index) => (
               <>
-                {sl.effect === Effects.SlideEffect.FLIP ? (
-                  <Effects.Effect3DFlip index={index} slide={slide}>
-                    {sl.view}
-                  </Effects.Effect3DFlip>
-                ) : sl.effect === Effects.SlideEffect.CURTAIN_REVEAL ? (
-                  <Effects.EffectCurtainReveal index={index} slide={slide}>
-                    {sl.view}
-                  </Effects.EffectCurtainReveal>
-                ) : sl.effect === Effects.SlideEffect.ZOOM ? (
-                  <Effects.EffectZoom index={index} slide={slide}>
-                    {sl.view}
-                  </Effects.EffectZoom>
-                ) : (
-                  sl.view
-                )}
+                {// buffer 5 slides before and after the current slide
+                index + 5 >= slide &&
+                  index - 5 <= slide && (
+                    <>
+                      {sl.effect === Effects.SlideEffect.FLIP ? (
+                        <Effects.Effect3DFlip index={index} slide={slide}>
+                          {sl.view}
+                        </Effects.Effect3DFlip>
+                      ) : sl.effect === Effects.SlideEffect.CURTAIN_REVEAL ? (
+                        <Effects.EffectCurtainReveal
+                          index={index}
+                          slide={slide}
+                        >
+                          {sl.view}
+                        </Effects.EffectCurtainReveal>
+                      ) : sl.effect === Effects.SlideEffect.ZOOM ? (
+                        <Effects.EffectZoom index={index} slide={slide}>
+                          {sl.view}
+                        </Effects.EffectZoom>
+                      ) : (
+                        sl.view
+                      )}
+                    </>
+                  )}
               </>
             ))}
             <HStack

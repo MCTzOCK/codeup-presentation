@@ -26,6 +26,7 @@ export function Effect3DFlip(props: {
         transformStyle: "preserve-3d",
         backfaceVisibility: "hidden",
         zIndex: 10,
+        visibility: props.index === props.slide ? "visible" : "hidden",
       }}
       initial={{
         opacity: 0,
@@ -62,6 +63,7 @@ export function EffectCurtainReveal(props: {
         padding: "var(--chakra-space-4)",
         overflow: "hidden",
         zIndex: 10,
+        visibility: props.index === props.slide ? "visible" : "hidden",
       }}
       initial={{
         clipPath: "inset(50% 0% 50% 0%)",
@@ -100,6 +102,7 @@ export function EffectZoom(props: {
         height: "100vh",
         padding: "var(--chakra-space-4)",
         zIndex: 10,
+        visibility: props.index === props.slide ? "visible" : "hidden",
       }}
       initial={{
         opacity: 0,
