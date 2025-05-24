@@ -54,5 +54,4 @@ export default function App() {
       ]}
     ></Root>
   );
-  //return <ThreeDMain />;
 }
