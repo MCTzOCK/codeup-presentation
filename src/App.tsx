@@ -2,9 +2,8 @@ import * as React from "react";
 import Root from "./components/Root.tsx";
 import { SlideEffect } from "./components/SlideEffects.tsx";
 import MainSlide from "./slides/MainSlide.tsx";
-import ComponentSlide from "./slides/ComponentSlide.tsx";
-import ThreeDMain from "./3d/ThreeDMain.tsx";
 import IFrameSlide from "./components/IFrameSlide.tsx";
+import { Flex, Image } from "@chakra-ui/react";
 
 export default function App() {
   return (
@@ -29,10 +28,8 @@ export default function App() {
           "//codeup.space/challenges",
           "//codeup.space/orgs",
           "//codeup.space/orgs/Test/dashboard",
-          "//codeup.space/orgs/Test/manage",
           "//codeup.space/ideas",
           "//codeup.space/kids",
-          "//incode.ben-siebert.com",
           "//codeup.space/editor",
           "//codeup.space/editor/63d63e96c7ecbd1c5d744bc9",
           "//codeup.space/snippets/my",
@@ -51,6 +48,25 @@ export default function App() {
           "//codeup.space/dashboard/v2",
           "//codeup.space/admin",
         ].map((u) => IFrameSlide.getSlide(u)),
+        {
+          view: (
+            <Flex
+              w={"100%"}
+              h={"100%"}
+              alignItems={"center"}
+              justifyContent={"center"}
+            >
+              <Image
+                src={"/mobile.png"}
+                alt={"CodeUp Mobile App"}
+                maxW={"100%"}
+                maxH={"100%"}
+                rounded={"xl"}
+              />
+            </Flex>
+          ),
+          effect: SlideEffect.ZOOM,
+        },
       ]}
     ></Root>
   );
